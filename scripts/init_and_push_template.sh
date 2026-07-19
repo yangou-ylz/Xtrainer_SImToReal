@@ -20,7 +20,11 @@ fi
 git add .
 git status --short
 
-git commit -m "Initial X-Trainer simulation handoff"
+if ! git diff --cached --quiet; then
+  git commit -m "${COMMIT_MESSAGE:-Update X-Trainer simulation project}"
+else
+  echo "No staged changes. Skip commit."
+fi
 
 if git remote get-url origin >/dev/null 2>&1; then
   git remote set-url origin "$REMOTE_URL"
