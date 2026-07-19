@@ -1,4 +1,4 @@
-# X-Trainer Action Mapping
+# X-Trainer 动作映射
 
 更新日期：2026-06-14
 
@@ -29,9 +29,9 @@
 
 该语义已经被 ROS2 X-Trainer model、Quest adapter 原型和 SDK dry-run 原型使用。
 
-## 2. LeIsaac / X-Trainer 16 维语义
+## 2. LeIsaac / X-Trainer 16 维动作语义
 
-LeIsaac follower action/state 顺序：
+LeIsaac follower 的 action/state 顺序：
 
 ```text
 0  J1_1.pos

@@ -1,100 +1,126 @@
-# Development Roadmap
+# 后续开发路线
 
-## Goal
+这份路线不是要把事情说得很复杂，而是给后续负责仿真的同学一个清楚方向：先把最小闭环跑稳，再逐步把零售场景做真实。
 
-Build a useful simulation data factory for X-Trainer dual-arm retail manipulation.
+## 总目标
 
-The purpose is not to prove that simulation is perfectly realistic. The purpose is to generate controlled scene variation, failure coverage, and evaluation data that improves real-robot VLA behavior.
+目标是做一个对 X-Trainer 双臂零售抓取有用的仿真数据工厂。
 
-## Current Baseline
+仿真的价值不是“完全替代真机”，而是低成本生成大量场景变化、失败样本和评测样本。最后必须用真机成功率证明这些仿真数据有没有帮助。
 
-The handoff package already contains:
+## 当前已有基础
 
-- X-Trainer model assets and ROS2 controllable reference model
-- Isaac/LeIsaac PickCube baseline scripts
-- three-camera RGB recording
-- HDF5 dataset recording
-- LeRobot conversion
-- action mapping between 14-DoF project commands and 16-DoF LeIsaac actions
-- endpoint keyboard collection
-- dataset quality checks
+当前交接仓库已经包含：
 
-## Recommended Next Steps
+- X-Trainer ROS2 完整视觉模型和可控模型。
+- Isaac/LeIsaac PickCube 基线脚本。
+- 三视角 RGB 采集。
+- HDF5 数据记录。
+- LeRobot 转换。
+- 14 维项目动作到 16 维 LeIsaac 动作的映射。
+- 末端键盘控制采集入口。
+- 数据质量检查。
 
-### Stage 1: Stabilize PickCube
+这些东西足够作为下一步开发起点。
 
-Reproduce the included PickCube workflow on the target machine.
+## 阶段 1：先复现 PickCube
 
-Required outputs:
+第一步不要急着改零售场景，先在新机器上复现已有 PickCube 链路。
 
-- one HDF5 episode
-- one multiview MP4
-- one quality report
-- one LeRobot conversion
+需要拿到这些结果：
 
-### Stage 2: Build PickSnack
+- 一条 HDF5 episode。
+- 一个三视角 `multiview.mp4`。
+- 一份质量报告。
+- 一次 LeRobot 转换输出。
 
-Replace the cube with retail-like objects:
+如果这一步不稳，后面的零食、货架、随机化都会变成堆问题。
 
-- snack box
-- bottle or can
-- bag-like simplified package
-- basket or plate target
+## 阶段 2：从 PickCube 改成 PickSnack
 
-Start with rigid approximations. Do not begin with deformable packaging.
+第二步把 cube 换成零售物体。
 
-### Stage 3: Add Controlled Randomization
+建议先做简单刚体版本：
 
-Add variation in this order:
+- 零食盒。
+- 饮料瓶或易拉罐。
+- 简化的袋装零食。
+- 篮子、盘子或收纳框。
 
-1. object position and yaw
-2. distractor objects
-3. camera exposure and lighting
-4. background/table texture
-5. object mass and friction
+一开始不要做软体包装，不要追求包装袋被捏变形。先保证视觉、接触、抓取、放置和数据格式跑通。
 
-Every randomization profile must have a quality gate.
+## 阶段 3：加入可控随机化
 
-### Stage 4: Align With Real Data
+随机化要分阶段加，不要一次全开。
 
-Use a small set of successful real-robot snack-grasp episodes to align:
+推荐顺序：
 
-- camera viewpoints
-- workspace bounds
-- object scale
-- gripper open/close range
-- initial arm poses
-- task language
+1. 物体位置和朝向。
+2. 干扰物。
+3. 光照和相机曝光。
+4. 桌面、背景和物体贴图。
+5. 质量、摩擦和夹爪驱动参数。
 
-### Stage 5: Train and Compare
+每加一种随机化，都要能导出视频和质量报告。否则后面很难判断数据是不是坏了。
 
-Run three data-mixing experiments:
+## 阶段 4：用真实数据校准仿真
 
-- real only
-- real + simulation
-- simulation pretrain + real fine-tune
+真实机器人已经能用 pi0.5 做多个零食抓取任务，这部分非常重要。
 
-Evaluate on real hidden trials:
+建议整理一小批真实成功数据，用来对齐：
 
-- same snack, new pose
-- new snack, same layout
-- cluttered retail layout
-- language-targeted object selection
+- 相机视角。
+- 桌面高度。
+- 物体尺寸。
+- 夹爪开合范围。
+- 机械臂初始姿态。
+- workspace 边界。
+- 任务语言。
 
-### Stage 6: Dual-Arm Retail Tasks
+仿真不是越花越好，关键是要和真实任务的数据分布接近。
 
-Add dual-arm value only when single-arm PickSnack is stable.
+## 阶段 5：做训练对比
 
-Good dual-arm tasks:
+后续必须做对照实验，而不是只说“仿真数据有用”。
 
-- one arm stabilizes a basket while the other places an object
-- one arm clears an occluder while the other grasps the target
-- one arm holds a bag or container while the other inserts an item
+建议至少做三组：
 
-## Research Focus
+- 只用真实数据训练。
+- 真实数据 + 仿真数据混合训练。
+- 先用仿真数据预训练，再用真实数据微调。
 
-A concise research question:
+真机测试可以分成：
 
-> How can a small amount of real X-Trainer retail manipulation data be combined with high-fidelity Isaac/LeIsaac simulation data to improve VLA generalization to new snacks, layouts, and occlusions?
+- 同一种零食，新位置。
+- 新零食，同布局。
+- 多物体杂乱布局。
+- 根据语言指令抓指定物体。
 
-Keep all progress measurable through real-robot success rate, not only simulator success.
+最终看真机成功率、是否抓错、是否碰撞、放置是否成功。
+
+## 阶段 6：再做双臂协作
+
+单臂 PickSnack 稳定后，再做双臂。
+
+双臂应该解决真实零售任务里的问题，而不是为了“看起来高级”。比较有价值的任务包括：
+
+- 一只手稳定篮子，另一只手放物体。
+- 一只手拨开遮挡，另一只手抓目标。
+- 一只手撑开袋子或容器，另一只手放入商品。
+
+## 推荐科研问题
+
+可以把课题收敛成一句话：
+
+> 面向 X-Trainer 双臂零售操作，研究少量真实 pi0.5 演示和 Isaac/LeIsaac 仿真数据混合训练，如何提升 VLA 对新零食、新摆放和遮挡场景的真机泛化能力。
+
+这个方向和当前项目最贴近，也容易做出真实评测结果。
+
+## 开发原则
+
+- 先跑通闭环，再追求复杂场景。
+- 每次只改一个主要变量。
+- 所有数据都要能回看视频。
+- 所有 episode 都要有质量报告。
+- 仿真成功不等于真机成功，最终结论看真机测试。
+- 不要把 Gazebo Classic 当成高保真接触物理结论，接触数据生成优先走 Isaac/LeIsaac。

@@ -1,4 +1,4 @@
-# X-Trainer 仿真数据 Schema
+# X-Trainer 仿真数据格式
 
 更新日期：2026-06-14
 
@@ -17,14 +17,14 @@ data/
       left_wrist                    shape: [T, 480, 640, 3]
       right_wrist                   shape: [T, 480, 640, 3]
     attrs:
-      success                       bool, optional but recommended
+      success                       bool，建议写入
 ```
 
 来源：`scripts/convert/isaaclab2lerobot_xtrainer.py`。
 
 ## 2. LeRobot 输出
 
-LeRobot features：
+LeRobot 输出字段：
 
 ```text
 action
@@ -70,4 +70,3 @@ Grab cube and place into plate
 - 图像 shape 为 480x640x3，dtype 可被转换脚本处理。
 - success attr 存在时只转换 success episode。
 - 记录实际 FPS 或 step_hz，目标 30Hz。
-
