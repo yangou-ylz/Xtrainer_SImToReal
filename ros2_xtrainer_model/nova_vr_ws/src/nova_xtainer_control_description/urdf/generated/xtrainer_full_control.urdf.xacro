@@ -1,0 +1,808 @@
+<?xml version="1.0"?>
+<robot name="xtrainer_full_control" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <material name="xtrainer_full_control_mat">
+    <color rgba="0.72 0.74 0.76 1.0"/>
+  </material>
+  <link name="xtrainer_full_control_root"/>
+  <link name="J1_1_link">
+    <inertial>
+      <origin xyz="-2.00100985e-07 -0.021871021 -0.023623798" rpy="0.557857946 0.00130527358 -0.00204828011"/>
+      <mass value="0.803382"/>
+      <inertia ixx="0.00167953502" ixy="0" ixz="0" iyy="0.00174546451" iyz="0" izz="0.000761258998"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J1_1.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J1_2_link">
+    <inertial>
+      <origin xyz="-6.68381062e-06 -0.150327504 0.093145214" rpy="0.056892303 0.000297355766 2.95862726e-05"/>
+      <mass value="1.57816"/>
+      <inertia ixx="0.021638643" ixy="0" ixz="0" iyy="0.00150104647" iyz="0" izz="0.0218008906"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J1_2.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J1_3_link">
+    <inertial>
+      <origin xyz="-3.18972548e-06 0.118192896 0.0113245705" rpy="0.0623181615 0.00136726906 7.66496775e-05"/>
+      <mass value="0.999486"/>
+      <inertia ixx="0.00939462334" ixy="0" ixz="0" iyy="0.000742460601" iyz="0" izz="0.00944702979"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J1_3.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J1_4_link">
+    <inertial>
+      <origin xyz="2.5423758e-06 -0.0226616152 0.0204571821" rpy="0.75338764 0.000490711715 0.000512790785"/>
+      <mass value="0.44171"/>
+      <inertia ixx="0.000641226594" ixy="0" ixz="0" iyy="0.000255368475" iyz="0" izz="0.000682807644"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J1_4.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J1_5_link">
+    <inertial>
+      <origin xyz="-2.36894584e-06 0.00154601515 -0.00760521879" rpy="0.396523493 0.000190527203 0.000113693366"/>
+      <mass value="0.585231"/>
+      <inertia ixx="0.000669255853" ixy="0" ixz="0" iyy="0.000356076634" iyz="0" izz="0.000695497962"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J1_5.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J1_6_link">
+    <inertial>
+      <origin xyz="8.60696309e-05 -0.0093445424 0.0193770956" rpy="-0.022573906 -0.000927934567 0.00401694206"/>
+      <mass value="0.328138"/>
+      <inertia ixx="0.000134999951" ixy="0" ixz="0" iyy="0.000307984446" iyz="0" izz="0.000363920524"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J1_6.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J1_7_link">
+    <inertial>
+      <origin xyz="0.0239999797 0.00419456838 0.0134416427" rpy="0.207161243 3.43134185e-07 4.17084401e-07"/>
+      <mass value="0.0552138"/>
+      <inertia ixx="2.23596089e-05" ixy="0" ixz="0" iyy="1.1031947e-05" iyz="0" izz="2.98208288e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J1_7.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0240000616 0.0198703241 0.012462504" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.035 0.045 0.012"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="J1_8_link">
+    <inertial>
+      <origin xyz="0.0240000207 -0.00419456838 0.0134416427" rpy="-0.207161243 -3.44807699e-07 4.16788911e-07"/>
+      <mass value="0.0552138"/>
+      <inertia ixx="2.23596089e-05" ixy="0" ixz="0" iyy="1.1031947e-05" iyz="0" izz="2.98208288e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J1_8.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0239999377 -0.0198703241 0.012462504" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.035 0.045 0.012"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="J2_1_link">
+    <inertial>
+      <origin xyz="-2.00100828e-07 -0.021871021 -0.023623798" rpy="0.557857946 0.00130527448 -0.00204828155"/>
+      <mass value="0.803382"/>
+      <inertia ixx="0.00167953502" ixy="0" ixz="0" iyy="0.00174546451" iyz="0" izz="0.000761258998"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J2_1.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J2_2_link">
+    <inertial>
+      <origin xyz="-6.70320424e-06 -0.150327548 0.093145214" rpy="0.0568923254 0.000296677165 2.95792266e-05"/>
+      <mass value="1.57816"/>
+      <inertia ixx="0.0216386411" ixy="0" ixz="0" iyy="0.001501046" iyz="0" izz="0.0218008887"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J2_2.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J2_3_link">
+    <inertial>
+      <origin xyz="0.118192896 -1.07802125e-05 0.0113245705" rpy="0.00136991094 -0.0623181031 -8.66645955e-06"/>
+      <mass value="0.999486"/>
+      <inertia ixx="0.000742460601" ixy="0" ixz="0" iyy="0.00939462334" iyz="0" izz="0.00944702979"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J2_3.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J2_4_link">
+    <inertial>
+      <origin xyz="-0.0226616133 -1.65092752e-05 0.020457169" rpy="0.000672957808 -0.753387528 5.23800383e-05"/>
+      <mass value="0.44171"/>
+      <inertia ixx="0.000255368475" ixy="0" ixz="0" iyy="0.00064122671" iyz="0" izz="0.000682807702"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J2_4.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J2_5_link">
+    <inertial>
+      <origin xyz="-0.00154515554 -2.36876485e-06 -0.00760521879" rpy="-0.000206542594 0.396523485 3.39238186e-05"/>
+      <mass value="0.585231"/>
+      <inertia ixx="0.000356076634" ixy="0" ixz="0" iyy="0.000669255853" iyz="0" izz="0.000695497962"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J2_5.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J2_6_link">
+    <inertial>
+      <origin xyz="8.60696309e-05 -0.0093445424 0.0193770956" rpy="-0.022573906 -0.000927934567 0.00401694206"/>
+      <mass value="0.328138"/>
+      <inertia ixx="0.000134999951" ixy="0" ixz="0" iyy="0.000307984446" iyz="0" izz="0.000363920524"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J2_6.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J2_7_link">
+    <inertial>
+      <origin xyz="0.0239999797 0.00419456838 0.0134416427" rpy="0.207161243 3.44807699e-07 4.16788911e-07"/>
+      <mass value="0.0552138"/>
+      <inertia ixx="2.23596089e-05" ixy="0" ixz="0" iyy="1.1031947e-05" iyz="0" izz="2.98208288e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J2_7.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0240000616 0.0198703241 0.012462504" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.035 0.045 0.012"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="J2_8_link">
+    <inertial>
+      <origin xyz="0.0240000207 -0.00419456838 0.0134416427" rpy="-0.207161243 -3.43134213e-07 4.17084404e-07"/>
+      <mass value="0.0552138"/>
+      <inertia ixx="2.23596089e-05" ixy="0" ixz="0" iyy="1.1031947e-05" iyz="0" izz="2.98208288e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J2_8.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0239999377 -0.0198703241 0.012462504" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.035 0.045 0.012"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="J3_1_link">
+    <inertial>
+      <origin xyz="4.70863743e-05 -2.05480956e-06 -0.0215644911" rpy="-2.67584593e-05 0.00193967897 -0.000646012684"/>
+      <mass value="0.13077"/>
+      <inertia ixx="7.09266751e-05" ixy="0" ixz="0" iyy="6.47575507e-05" iyz="0" izz="0.000102621343"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J3_1_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J3_2_link">
+    <inertial>
+      <origin xyz="0.000426929677 -0.139496699 -0.000274679624" rpy="0.00106771413 0.015579319 0.00138475006"/>
+      <mass value="0.0832278"/>
+      <inertia ixx="0.000395174487" ixy="0" ixz="0" iyy="1.61745556e-05" iyz="0" izz="0.00039467882"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J3_2_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J3_3_link">
+    <inertial>
+      <origin xyz="0.0908854008 0.000635032076 0.0222023018" rpy="0.00768744945 0.117085636 0.00692889828"/>
+      <mass value="0.0569985"/>
+      <inertia ixx="1.770364e-05" ixy="0" ixz="0" iyy="0.000175412919" iyz="0" izz="0.000164722675"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J3_3_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J3_4_link">
+    <inertial>
+      <origin xyz="-0.0152257336 -0.000115329778 -0.0262210593" rpy="2.41958859e-06 -0.0576229209 0.00605519362"/>
+      <mass value="0.0346342"/>
+      <inertia ixx="2.8685532e-05" ixy="0" ixz="0" iyy="2.99650819e-05" iyz="0" izz="4.73109094e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J3_4_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J3_5_link">
+    <inertial>
+      <origin xyz="2.25528743e-06 0.0157723725 -0.0598829053" rpy="-0.0380400485 -0.000125307004 -0.000936992103"/>
+      <mass value="0.0356973"/>
+      <inertia ixx="1.95932698e-05" ixy="0" ixz="0" iyy="1.82620679e-05" iyz="0" izz="4.876601e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J3_5_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J3_6_link">
+    <inertial>
+      <origin xyz="0.0013945793 0.0236117896 -0.035313338" rpy="0.636076725 0.0210002067 -0.0742776556"/>
+      <mass value="0.0650882"/>
+      <inertia ixx="7.98844703e-05" ixy="0" ixz="0" iyy="7.3494637e-05" iyz="0" izz="2.28917015e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J3_6_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J4_1_link">
+    <inertial>
+      <origin xyz="4.7086327e-05 -2.05525407e-06 -0.0215644911" rpy="-2.67586544e-05 0.00193968037 -0.000646012685"/>
+      <mass value="0.13077"/>
+      <inertia ixx="7.09266751e-05" ixy="0" ixz="0" iyy="6.47575507e-05" iyz="0" izz="0.000102621343"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J4_1_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J4_2_link">
+    <inertial>
+      <origin xyz="-7.30705724e-05 -0.139496699 -0.000274679973" rpy="0.00106771794 0.015579319 0.00138474659"/>
+      <mass value="0.0832278"/>
+      <inertia ixx="0.000395174487" ixy="0" ixz="0" iyy="1.61745556e-05" iyz="0" izz="0.00039467882"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J4_2_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J4_3_link">
+    <inertial>
+      <origin xyz="-0.0908806249 0.00112737459 0.0222023018" rpy="-0.00768743746 -0.117085644 -0.0124625309"/>
+      <mass value="0.0569985"/>
+      <inertia ixx="1.770364e-05" ixy="0" ixz="0" iyy="0.00017541289" iyz="0" izz="0.000164722675"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J4_3_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J4_4_link">
+    <inertial>
+      <origin xyz="0.0152251069 -0.000179922063 -0.0265210588" rpy="-2.4169576e-06 0.0576229235 -0.0133361809"/>
+      <mass value="0.0346342"/>
+      <inertia ixx="2.8685532e-05" ixy="0" ixz="0" iyy="2.99650837e-05" iyz="0" izz="4.73109094e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J4_4_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J4_5_link">
+    <inertial>
+      <origin xyz="-2.25531289e-06 -0.0156384297 -0.0598829053" rpy="0.0380400448 0.00012531083 -0.000936953432"/>
+      <mass value="0.0356973"/>
+      <inertia ixx="1.95932698e-05" ixy="0" ixz="0" iyy="1.82620679e-05" iyz="0" izz="4.87660054e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J4_5_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="J4_6_link">
+    <inertial>
+      <origin xyz="-0.000134654241 0.0236526243 -0.0350133106" rpy="0.636078893 0.0209926339 -0.00957834819"/>
+      <mass value="0.0650882"/>
+      <inertia ixx="7.98844922e-05" ixy="0" ixz="0" iyy="7.34946952e-05" iyz="0" izz="2.28916433e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/J4_6_world.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+  </link>
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.529993713 -0.186441377 -0.00936699752" rpy="-0.00916479747 6.18867179e-07 -6.37439943e-07"/>
+      <mass value="16.7028"/>
+      <inertia ixx="1.16831505" ixy="0" ixz="0" iyy="2.3968184" iyz="0" izz="3.55413508"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_control_description)/meshes/xtrainer_full_control_local/base_link.stl"/>
+      </geometry>
+      <material name="xtrainer_full_control_mat"/>
+    </visual>
+    <collision>
+      <origin xyz="0.53 -0.18 0.04" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.40 0.96 0.08"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="root_to_base_link" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="base_link"/>
+  </joint>
+  <joint name="J3_1_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J3_1_link"/>
+  </joint>
+  <joint name="J3_2_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J3_2_link"/>
+  </joint>
+  <joint name="J3_3_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J3_3_link"/>
+  </joint>
+  <joint name="J3_4_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J3_4_link"/>
+  </joint>
+  <joint name="J3_5_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J3_5_link"/>
+  </joint>
+  <joint name="J3_6_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J3_6_link"/>
+  </joint>
+  <joint name="J4_1_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J4_1_link"/>
+  </joint>
+  <joint name="J4_2_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J4_2_link"/>
+  </joint>
+  <joint name="J4_3_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J4_3_link"/>
+  </joint>
+  <joint name="J4_4_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J4_4_link"/>
+  </joint>
+  <joint name="J4_5_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J4_5_link"/>
+  </joint>
+  <joint name="J4_6_fixed_reference" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_full_control_root"/>
+    <child link="J4_6_link"/>
+  </joint>
+  <link name="J1_1_joint_frame"/>
+  <joint name="J1_1" type="revolute">
+    <origin xyz="0 0 0.223399997" rpy="3.14159265 0 3.14159265"/>
+    <parent link="base_link"/>
+    <child link="J1_1_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J1_1_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="3.14159265 0 3.14159265"/>
+    <parent link="J1_1_joint_frame"/>
+    <child link="J1_1_link"/>
+  </joint>
+  <link name="J1_2_joint_frame"/>
+  <joint name="J1_2" type="revolute">
+    <origin xyz="0 0 0" rpy="-1.57079995 0 -3.14158541"/>
+    <parent link="J1_1_link"/>
+    <child link="J1_2_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J1_2_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J1_2_joint_frame"/>
+    <child link="J1_2_link"/>
+  </joint>
+  <link name="J1_3_joint_frame"/>
+  <joint name="J1_3" type="revolute">
+    <origin xyz="0 -0.280000001 0" rpy="3.14159265 0 -1.5707927"/>
+    <parent link="J1_2_link"/>
+    <child link="J1_3_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J1_3_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="3.14159265 0 3.14159265"/>
+    <parent link="J1_3_joint_frame"/>
+    <child link="J1_3_link"/>
+  </joint>
+  <link name="J1_4_joint_frame"/>
+  <joint name="J1_4" type="revolute">
+    <origin xyz="0 0.224999994 0.1175" rpy="-3.14158541 0 0"/>
+    <parent link="J1_3_link"/>
+    <child link="J1_4_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J1_4_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J1_4_joint_frame"/>
+    <child link="J1_4_link"/>
+  </joint>
+  <link name="J1_5_joint_frame"/>
+  <joint name="J1_5" type="revolute">
+    <origin xyz="0 -0.119999997 0" rpy="-1.55440253 1.57079269 -3.1252025"/>
+    <parent link="J1_4_link"/>
+    <child link="J1_5_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J1_5_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J1_5_joint_frame"/>
+    <child link="J1_5_link"/>
+  </joint>
+  <link name="J1_6_joint_frame"/>
+  <joint name="J1_6" type="revolute">
+    <origin xyz="0 0.0877429992 0" rpy="-1.57079995 0 0"/>
+    <parent link="J1_5_link"/>
+    <child link="J1_6_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J1_6_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J1_6_joint_frame"/>
+    <child link="J1_6_link"/>
+  </joint>
+  <link name="J1_7_joint_frame"/>
+  <joint name="J1_7" type="prismatic">
+    <origin xyz="-0.0625 -0.0240049995 0.115680002" rpy="1.57079269 -5.95980332e-08 -1.57079269"/>
+    <parent link="J1_6_link"/>
+    <child link="J1_7_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.0399999991" upper="0" effort="50" velocity="1"/>
+  </joint>
+  <joint name="J1_7_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="3.14159265 0 3.14159265"/>
+    <parent link="J1_7_joint_frame"/>
+    <child link="J1_7_link"/>
+  </joint>
+  <link name="J1_8_joint_frame"/>
+  <joint name="J1_8" type="prismatic">
+    <origin xyz="0.0625 -0.0240049995 0.115680002" rpy="-1.57079996 -5.95980332e-08 1.57079996"/>
+    <parent link="J1_6_link"/>
+    <child link="J1_8_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="0.0399999991" effort="50" velocity="1"/>
+  </joint>
+  <joint name="J1_8_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J1_8_joint_frame"/>
+    <child link="J1_8_link"/>
+  </joint>
+  <link name="J2_1_joint_frame"/>
+  <joint name="J2_1" type="revolute">
+    <origin xyz="1.05999994 0 0.223399997" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="J2_1_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J2_1_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J2_1_joint_frame"/>
+    <child link="J2_1_link"/>
+  </joint>
+  <link name="J2_2_joint_frame"/>
+  <joint name="J2_2" type="revolute">
+    <origin xyz="0 0 0" rpy="-1.57079995 0 -3.14158541"/>
+    <parent link="J2_1_link"/>
+    <child link="J2_2_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J2_2_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J2_2_joint_frame"/>
+    <child link="J2_2_link"/>
+  </joint>
+  <link name="J2_3_joint_frame"/>
+  <joint name="J2_3" type="revolute">
+    <origin xyz="0 -0.280000001 0" rpy="0 0 0"/>
+    <parent link="J2_2_link"/>
+    <child link="J2_3_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J2_3_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J2_3_joint_frame"/>
+    <child link="J2_3_link"/>
+  </joint>
+  <link name="J2_4_joint_frame"/>
+  <joint name="J2_4" type="revolute">
+    <origin xyz="0.224999994 0 0.1175" rpy="-3.14158541 0 -3.14158541"/>
+    <parent link="J2_3_link"/>
+    <child link="J2_4_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J2_4_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J2_4_joint_frame"/>
+    <child link="J2_4_link"/>
+  </joint>
+  <link name="J2_5_joint_frame"/>
+  <joint name="J2_5" type="revolute">
+    <origin xyz="-0.119999997 0 0" rpy="1.57079269 5.95980332e-08 1.57079269"/>
+    <parent link="J2_4_link"/>
+    <child link="J2_5_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J2_5_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="3.14159265 0 3.14159265"/>
+    <parent link="J2_5_joint_frame"/>
+    <child link="J2_5_link"/>
+  </joint>
+  <link name="J2_6_joint_frame"/>
+  <joint name="J2_6" type="revolute">
+    <origin xyz="-0.0877429992 0 0" rpy="-1.57079996 -5.95980332e-08 1.57079996"/>
+    <parent link="J2_5_link"/>
+    <child link="J2_6_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.13999982" upper="3.13999982" effort="200" velocity="10"/>
+  </joint>
+  <joint name="J2_6_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J2_6_joint_frame"/>
+    <child link="J2_6_link"/>
+  </joint>
+  <link name="J2_7_joint_frame"/>
+  <joint name="J2_7" type="prismatic">
+    <origin xyz="0.0625 0.0239950009 0.115680002" rpy="1.57079269 5.95980332e-08 1.57079269"/>
+    <parent link="J2_6_link"/>
+    <child link="J2_7_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.0399999991" upper="0" effort="50" velocity="1"/>
+  </joint>
+  <joint name="J2_7_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="3.14159265 0 3.14159265"/>
+    <parent link="J2_7_joint_frame"/>
+    <child link="J2_7_link"/>
+  </joint>
+  <link name="J2_8_joint_frame"/>
+  <joint name="J2_8" type="prismatic">
+    <origin xyz="-0.0625 0.0239950009 0.115680002" rpy="-1.57079996 5.95980332e-08 -1.57079996"/>
+    <parent link="J2_6_link"/>
+    <child link="J2_8_joint_frame"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="0.0399999991" effort="50" velocity="1"/>
+  </joint>
+  <joint name="J2_8_joint_frame_to_body" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="J2_8_joint_frame"/>
+    <child link="J2_8_link"/>
+  </joint>
+  <xacro:arg name="hardware_plugin" default="mock_components/GenericSystem"/>
+  <xacro:arg name="controllers_file" default="$(find nova_xtainer_control_bringup)/config/xtrainer_full_control_controllers.yaml"/>
+  <ros2_control name="xtrainer_full_control_system" type="system">
+    <hardware>
+      <plugin>$(arg hardware_plugin)</plugin>
+    </hardware>
+    <joint name="J1_1">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J1_2">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J1_3">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J1_4">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J1_5">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J1_6">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J1_7">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J1_8">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J2_1">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J2_2">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J2_3">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J2_4">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J2_5">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J2_6">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J2_7">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="J2_8">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(arg controllers_file)</parameters>
+    </plugin>
+  </gazebo>
+</robot>

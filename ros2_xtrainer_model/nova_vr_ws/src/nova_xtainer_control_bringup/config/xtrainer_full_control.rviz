@@ -1,0 +1,61 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Grid
+      Plane Cell Count: 30
+      Plane Cell Size: 0.1
+      Reference Frame: xtrainer_full_control_root
+    - Class: rviz_default_plugins/TF
+      Enabled: false
+      Name: TF
+      Show Axes: true
+      Show Names: false
+    - Class: rviz_default_plugins/RobotModel
+      Description Topic:
+        Value: /robot_description
+      Enabled: true
+      Name: RobotModel
+      Visual Enabled: true
+      Collision Enabled: false
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Marker Topic:
+        Value: /nova_vr_teleop_adapter/target_markers
+      Name: QuestTargetMarkers
+      Namespaces:
+        quest_targets: true
+        sdk_anchor_tcp: true
+        sdk_current_tcp: true
+        sdk_target_tcp: true
+        sdk_workspace: true
+        stage_f_current_tcp_path: true
+        stage_f_deadman_status: true
+        stage_f_intent_arrow: true
+        stage_f_quest_path: true
+        stage_f_target_tcp_path: true
+        stage_f_visual_legend: true
+      Queue Size: 100
+  Enabled: true
+  Global Options:
+    Fixed Frame: xtrainer_full_control_root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 2.7
+      Focal Point:
+        X: 0.50
+        Y: -0.18
+        Z: 0.70
+      Name: Current View
+Window Geometry:
+  Height: 900
+  Width: 1400

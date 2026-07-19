@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="control_inertial" params="mass:=0.2 ixx:=0.001 iyy:=0.001 izz:=0.001">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia ixx="${ixx}" ixy="0.0" ixz="0.0" iyy="${iyy}" iyz="0.0" izz="${izz}"/>
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="nova2_control_mesh_link" params="name mesh mass:=0.2">
+    <link name="${name}">
+      <xacro:control_inertial mass="${mass}"/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find cra_description)/meshes/nova2/${mesh}"/>
+        </geometry>
+        <material name="${name}_nova_light">
+          <color rgba="0.792 0.820 0.933 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.08 0.08 0.08"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="nova2_control_arm" params="side parent xyz:='0 0 0' rpy:='0 0 0'">
+    <xacro:nova2_control_mesh_link name="${side}_base_link" mesh="base_link.STL" mass="0.94"/>
+    <xacro:nova2_control_mesh_link name="${side}_link1" mesh="Link1.STL" mass="0.80"/>
+    <xacro:nova2_control_mesh_link name="${side}_link2" mesh="Link2.STL" mass="1.58"/>
+    <xacro:nova2_control_mesh_link name="${side}_link3" mesh="Link3.STL" mass="1.00"/>
+    <xacro:nova2_control_mesh_link name="${side}_link4" mesh="Link4.STL" mass="0.44"/>
+    <xacro:nova2_control_mesh_link name="${side}_link5" mesh="Link5.STL" mass="0.57"/>
+    <xacro:nova2_control_mesh_link name="${side}_link6" mesh="Link6.STL" mass="0.12"/>
+
+    <joint name="${side}_base_mount_joint" type="fixed">
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <parent link="${parent}"/>
+      <child link="${side}_base_link"/>
+    </joint>
+
+    <joint name="${side}_joint1" type="revolute">
+      <origin xyz="0 0 0.2234" rpy="0 0 0"/>
+      <parent link="${side}_base_link"/>
+      <child link="${side}_link1"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="-6.28" upper="6.28" effort="300" velocity="3.14"/>
+    </joint>
+    <joint name="${side}_joint2" type="revolute">
+      <origin xyz="0 0 0" rpy="1.5708 1.5708 0"/>
+      <parent link="${side}_link1"/>
+      <child link="${side}_link2"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-3.14" upper="3.14" effort="300" velocity="3.14"/>
+    </joint>
+    <joint name="${side}_joint3" type="revolute">
+      <origin xyz="-0.28 0 0" rpy="0 0 0"/>
+      <parent link="${side}_link2"/>
+      <child link="${side}_link3"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-2.79" upper="2.79" effort="300" velocity="3.14"/>
+    </joint>
+    <joint name="${side}_joint4" type="revolute">
+      <origin xyz="-0.22501 0 0.1175" rpy="0 0 -1.5708"/>
+      <parent link="${side}_link3"/>
+      <child link="${side}_link4"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="-6.28" upper="6.28" effort="300" velocity="3.14"/>
+    </joint>
+    <joint name="${side}_joint5" type="revolute">
+      <origin xyz="0 -0.12 0" rpy="1.5708 0 0"/>
+      <parent link="${side}_link4"/>
+      <child link="${side}_link5"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="-6.28" upper="6.28" effort="300" velocity="3.14"/>
+    </joint>
+    <joint name="${side}_joint6" type="revolute">
+      <origin xyz="0 0.088004 0" rpy="-1.5708 0 0"/>
+      <parent link="${side}_link5"/>
+      <child link="${side}_link6"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-6.28" upper="6.28" effort="300" velocity="3.14"/>
+    </joint>
+  </xacro:macro>
+</robot>

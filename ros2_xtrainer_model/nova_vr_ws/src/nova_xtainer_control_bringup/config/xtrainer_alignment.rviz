@@ -1,0 +1,52 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Grid
+      Plane Cell Count: 24
+      Plane Cell Size: 0.1
+      Reference Frame: xtrainer_root
+    - Class: rviz_default_plugins/TF
+      Enabled: false
+      Name: TF
+      Show Axes: true
+      Show Names: false
+    - Alpha: 0.45
+      Class: rviz_default_plugins/RobotModel
+      Description Topic:
+        Value: /xtrainer_reference/robot_description
+      Enabled: true
+      Name: xtrainer_full_visual_reference
+      Visual Enabled: true
+      Collision Enabled: false
+    - Alpha: 1.0
+      Class: rviz_default_plugins/RobotModel
+      Description Topic:
+        Value: /xtrainer_control/robot_description
+      Enabled: true
+      Name: xtrainer_control
+      Visual Enabled: true
+      Collision Enabled: false
+  Enabled: true
+  Global Options:
+    Fixed Frame: xtrainer_root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 2.3
+      Focal Point:
+        X: 0.53
+        Y: -0.18
+        Z: 0.35
+      Name: Current View
+Window Geometry:
+  Height: 900
+  Width: 1400

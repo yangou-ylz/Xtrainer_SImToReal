@@ -1,0 +1,606 @@
+<?xml version="1.0"?>
+<robot name="xtrainer_full_visual" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link name="xtrainer_root"/>
+  <material name="xtrainer_visual_mat">
+    <color rgba="0.72 0.74 0.76 1.0"/>
+  </material>
+  <link name="xtrainer_J1_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J1_1.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J1_1" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J1_1"/>
+  </joint>
+  <link name="xtrainer_J1_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J1_2.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J1_2" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J1_2"/>
+  </joint>
+  <link name="xtrainer_J1_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J1_3.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J1_3" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J1_3"/>
+  </joint>
+  <link name="xtrainer_J1_4">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J1_4.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J1_4" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J1_4"/>
+  </joint>
+  <link name="xtrainer_J1_5">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J1_5.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J1_5" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J1_5"/>
+  </joint>
+  <link name="xtrainer_J1_6">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J1_6.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J1_6" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J1_6"/>
+  </joint>
+  <link name="xtrainer_J1_7">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J1_7.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J1_7" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J1_7"/>
+  </joint>
+  <link name="xtrainer_J1_8">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J1_8.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J1_8" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J1_8"/>
+  </joint>
+  <link name="xtrainer_J2_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J2_1.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J2_1" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J2_1"/>
+  </joint>
+  <link name="xtrainer_J2_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J2_2.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J2_2" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J2_2"/>
+  </joint>
+  <link name="xtrainer_J2_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J2_3.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J2_3" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J2_3"/>
+  </joint>
+  <link name="xtrainer_J2_4">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J2_4.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J2_4" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J2_4"/>
+  </joint>
+  <link name="xtrainer_J2_5">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J2_5.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J2_5" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J2_5"/>
+  </joint>
+  <link name="xtrainer_J2_6">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J2_6.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J2_6" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J2_6"/>
+  </joint>
+  <link name="xtrainer_J2_7">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J2_7.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J2_7" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J2_7"/>
+  </joint>
+  <link name="xtrainer_J2_8">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J2_8.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J2_8" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J2_8"/>
+  </joint>
+  <link name="xtrainer_J3_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J3_1.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J3_1" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J3_1"/>
+  </joint>
+  <link name="xtrainer_J3_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J3_2.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J3_2" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J3_2"/>
+  </joint>
+  <link name="xtrainer_J3_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J3_3.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J3_3" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J3_3"/>
+  </joint>
+  <link name="xtrainer_J3_4">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J3_4.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J3_4" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J3_4"/>
+  </joint>
+  <link name="xtrainer_J3_5">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J3_5.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J3_5" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J3_5"/>
+  </joint>
+  <link name="xtrainer_J3_6">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J3_6.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J3_6" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J3_6"/>
+  </joint>
+  <link name="xtrainer_J4_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J4_1.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J4_1" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J4_1"/>
+  </joint>
+  <link name="xtrainer_J4_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J4_2.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J4_2" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J4_2"/>
+  </joint>
+  <link name="xtrainer_J4_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J4_3.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J4_3" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J4_3"/>
+  </joint>
+  <link name="xtrainer_J4_4">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J4_4.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J4_4" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J4_4"/>
+  </joint>
+  <link name="xtrainer_J4_5">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J4_5.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J4_5" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J4_5"/>
+  </joint>
+  <link name="xtrainer_J4_6">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/J4_6.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_J4_6" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_J4_6"/>
+  </joint>
+  <link name="xtrainer_base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_full_usd/base_link.stl"/>
+      </geometry>
+      <material name="xtrainer_visual_mat"/>
+    </visual>
+  </link>
+  <joint name="world_to_xtrainer_base_link" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_root"/>
+    <child link="xtrainer_base_link"/>
+  </joint>
+  <link name="cam_main_frame">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+  </link>
+  <joint name="world_to_cam_main_frame" type="fixed">
+    <origin xyz="0.53 -0.55 1.0" rpy="-2.58 0.0 0.0"/>
+    <parent link="xtrainer_root"/>
+    <child link="cam_main_frame"/>
+  </joint>
+  <link name="cam_side_frame">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+  </link>
+  <joint name="world_to_cam_side_frame" type="fixed">
+    <origin xyz="0.56 -0.65 0.55" rpy="-2.04 0.0 0.0"/>
+    <parent link="xtrainer_root"/>
+    <child link="cam_side_frame"/>
+  </joint>
+  <link name="cam_left_arm_frame">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+  </link>
+  <joint name="world_to_cam_left_arm_frame" type="fixed">
+    <origin xyz="0.369 -0.055 0.42" rpy="-0.262 0.0 0.0"/>
+    <parent link="xtrainer_root"/>
+    <child link="cam_left_arm_frame"/>
+  </joint>
+  <link name="cam_right_arm_frame">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+  </link>
+  <joint name="world_to_cam_right_arm_frame" type="fixed">
+    <origin xyz="0.739 -0.055 0.42" rpy="-0.262 0.0 0.0"/>
+    <parent link="xtrainer_root"/>
+    <child link="cam_right_arm_frame"/>
+  </joint>
+</robot>

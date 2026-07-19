@@ -1,0 +1,43 @@
+# Randomization profiles for sim-to-real data generation.
+# Status: minimal_pickcube object pose smoke verified.
+
+profiles:
+  none:
+    enabled: false
+    description: Deterministic official baseline.
+
+  minimal_pickcube:
+    enabled: true
+    description: First safe randomization profile.
+    verified:
+      session: logs/session_phys50_randomization_smoke_v2
+      pass_marker: logs/session_phys50_randomization_smoke_v2/PASS_PHYS50_RANDOMIZATION_SMOKE
+    object_pose:
+      cube:
+        x: [-0.03, 0.03]
+        y: [-0.03, 0.03]
+        z: [0.0, 0.0]
+      plate:
+        x: [-0.03, 0.03]
+        y: [-0.03, 0.03]
+        z: [0.0, 0.0]
+    camera_pose:
+      enabled: false
+      notes: Enable after baseline data and image quality are validated.
+    lighting:
+      enabled: false
+      notes: Enable after object pose randomization is stable.
+
+  visual_plus:
+    enabled: false
+    description: Later visual sim-to-real profile.
+    material_randomization: true
+    lighting_randomization: true
+    camera_pose_randomization: true
+
+  contact_plus:
+    enabled: false
+    description: Later physics/contact profile.
+    object_mass_randomization: true
+    friction_randomization: true
+    gripper_drive_randomization: true

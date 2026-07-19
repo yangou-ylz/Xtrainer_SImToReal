@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<robot name="nova_xtainer" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find nova_xtainer_description)/urdf/nova2_prefixed.urdf.xacro"/>
+
+  <material name="xtainer_frame">
+    <color rgba="0.10 0.12 0.14 1.0"/>
+  </material>
+  <material name="xtainer_table">
+    <color rgba="0.34 0.36 0.38 1.0"/>
+  </material>
+  <material name="xtainer_camera">
+    <color rgba="0.02 0.02 0.02 1.0"/>
+  </material>
+  <material name="xtainer_camera_body">
+    <color rgba="0.70 0.72 0.72 1.0"/>
+  </material>
+  <material name="xtainer_camera_lens">
+    <color rgba="0.00 0.01 0.015 1.0"/>
+  </material>
+  <material name="xtainer_gripper">
+    <color rgba="0.18 0.18 0.20 1.0"/>
+  </material>
+  <material name="xtainer_mount_blue">
+    <color rgba="0.33 0.58 0.72 1.0"/>
+  </material>
+  <material name="xtainer_gripper_body">
+    <color rgba="0.82 0.84 0.86 1.0"/>
+  </material>
+  <material name="xtainer_gripper_pad">
+    <color rgba="0.04 0.20 0.34 1.0"/>
+  </material>
+
+  <link name="world"/>
+
+  <link name="xtainer_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="12.0"/>
+      <inertia ixx="0.5" ixy="0" ixz="0" iyy="0.5" iyz="0" izz="0.5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0.53 0" rpy="0 0 -1.5708"/>
+      <geometry>
+        <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_usd/base_table_only.stl"/>
+      </geometry>
+      <material name="xtainer_table"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.95 1.25 0.08"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="world_to_xtainer_base" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="xtainer_base"/>
+  </joint>
+
+  <link name="rear_camera_mast">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="2.0"/>
+      <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.02"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.38 0 0.45" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.9"/>
+      </geometry>
+      <material name="xtainer_frame"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.38 0 0.45" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.9"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="xtainer_base_to_rear_camera_mast" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtainer_base"/>
+    <child link="rear_camera_mast"/>
+  </joint>
+
+  <xacro:nova2_arm prefix="left_nova_" parent="xtainer_base" xyz="0 0.53 0.075" rpy="0 0 0"/>
+  <xacro:nova2_arm prefix="right_nova_" parent="xtainer_base" xyz="0 -0.53 0.075" rpy="0 0 0"/>
+
+  <xacro:macro name="xtainer_parallel_gripper" params="prefix parent_link mount_mesh jaw_a_mesh jaw_b_mesh jaw_a_xyz jaw_a_rpy jaw_b_xyz jaw_b_rpy jaw_a_axis jaw_b_axis">
+    <link name="${prefix}gripper_base">
+      <xacro:simple_inertial mass="0.18"/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_usd/${mount_mesh}"/>
+        </geometry>
+        <material name="xtainer_gripper_body"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.045" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.095 0.075 0.05"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}tool0_to_gripper_base" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${parent_link}"/>
+      <child link="${prefix}gripper_base"/>
+    </joint>
+
+    <link name="${prefix}gripper_left_finger">
+      <xacro:simple_inertial mass="0.04"/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_usd/${jaw_a_mesh}"/>
+        </geometry>
+        <material name="xtainer_gripper_body"/>
+      </visual>
+      <collision>
+        <origin xyz="0.04 0 0.02" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.045 0.018 0.115"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}gripper_left_finger_joint" type="prismatic">
+      <origin xyz="${jaw_a_xyz}" rpy="${jaw_a_rpy}"/>
+      <parent link="${prefix}gripper_base"/>
+      <child link="${prefix}gripper_left_finger"/>
+      <axis xyz="${jaw_a_axis}"/>
+      <limit lower="0.0" upper="0.04" effort="50" velocity="1.0"/>
+    </joint>
+
+    <link name="${prefix}gripper_right_finger">
+      <xacro:simple_inertial mass="0.04"/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find nova_xtainer_description)/meshes/xtrainer_usd/${jaw_b_mesh}"/>
+        </geometry>
+        <material name="xtainer_gripper_body"/>
+      </visual>
+      <collision>
+        <origin xyz="0.04 0 0.02" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.045 0.018 0.115"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${prefix}gripper_right_finger_joint" type="prismatic">
+      <origin xyz="${jaw_b_xyz}" rpy="${jaw_b_rpy}"/>
+      <parent link="${prefix}gripper_base"/>
+      <child link="${prefix}gripper_right_finger"/>
+      <axis xyz="${jaw_b_axis}"/>
+      <limit lower="0.0" upper="0.04" effort="50" velocity="1.0"/>
+    </joint>
+
+    <link name="${prefix}wrist_camera_body">
+      <xacro:simple_inertial mass="0.05"/>
+      <visual>
+        <origin xyz="-0.018 -0.066 0.074" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.030 0.024 0.026"/>
+        </geometry>
+        <material name="xtainer_camera_body"/>
+      </visual>
+      <visual>
+        <origin xyz="0.003 -0.066 0.074" rpy="0 1.5708 0"/>
+        <geometry>
+          <cylinder radius="0.010" length="0.010"/>
+        </geometry>
+        <material name="xtainer_camera_lens"/>
+      </visual>
+    </link>
+    <joint name="${prefix}gripper_base_to_wrist_camera_body" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${prefix}gripper_base"/>
+      <child link="${prefix}wrist_camera_body"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:xtainer_parallel_gripper prefix="left_nova_" parent_link="left_nova_Link6"
+    mount_mesh="left_gripper_mount.stl"
+    jaw_a_mesh="left_gripper_jaw_a.stl"
+    jaw_b_mesh="left_gripper_jaw_b.stl"
+    jaw_a_xyz="-0.0625 -0.024005 0.11568"
+    jaw_a_rpy="2.361976 -1.570791 2.350413"
+    jaw_b_xyz="0.0625 -0.024005 0.11568"
+    jaw_b_rpy="-2.373334 1.570791 2.339055"
+    jaw_a_axis="0 0 -1"
+    jaw_b_axis="0 0 1"/>
+  <xacro:xtainer_parallel_gripper prefix="right_nova_" parent_link="right_nova_Link6"
+    mount_mesh="right_gripper_mount.stl"
+    jaw_a_mesh="right_gripper_jaw_a.stl"
+    jaw_b_mesh="right_gripper_jaw_b.stl"
+    jaw_a_xyz="0.0625 0.023995 0.11568"
+    jaw_a_rpy="2.36515 1.570791 -2.347239"
+    jaw_b_xyz="-0.0625 0.023995 0.11568"
+    jaw_b_rpy="-2.347076 -1.570791 -2.365314"
+    jaw_a_axis="0 0 -1"
+    jaw_b_axis="0 0 1"/>
+
+  <link name="cam_main_frame">
+    <visual>
+      <origin xyz="-0.018 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.034 0.032 0.028"/>
+      </geometry>
+      <material name="xtainer_camera_body"/>
+    </visual>
+    <visual>
+      <origin xyz="0.006 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.014" length="0.012"/>
+      </geometry>
+      <material name="xtainer_camera_lens"/>
+    </visual>
+  </link>
+  <joint name="xtainer_base_to_cam_main" type="fixed">
+    <origin xyz="0.53 -0.55 1.0" rpy="-2.58 0 0"/>
+    <parent link="xtainer_base"/>
+    <child link="cam_main_frame"/>
+  </joint>
+
+  <link name="cam_side_frame">
+    <visual>
+      <origin xyz="-0.018 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.034 0.032 0.028"/>
+      </geometry>
+      <material name="xtainer_camera_body"/>
+    </visual>
+    <visual>
+      <origin xyz="0.006 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.014" length="0.012"/>
+      </geometry>
+      <material name="xtainer_camera_lens"/>
+    </visual>
+  </link>
+  <joint name="xtainer_base_to_cam_side" type="fixed">
+    <origin xyz="0.56 -0.65 0.55" rpy="-2.04 0 0"/>
+    <parent link="xtainer_base"/>
+    <child link="cam_side_frame"/>
+  </joint>
+
+  <link name="cam_left_arm_frame"/>
+  <joint name="left_wrist_camera_body_to_cam_left_arm" type="fixed">
+    <origin xyz="0 -0.065 0.03" rpy="-0.262 0 0"/>
+    <parent link="left_nova_wrist_camera_body"/>
+    <child link="cam_left_arm_frame"/>
+  </joint>
+
+  <link name="cam_right_arm_frame"/>
+  <joint name="right_wrist_camera_body_to_cam_right_arm" type="fixed">
+    <origin xyz="0 -0.065 0.03" rpy="-0.262 0 0"/>
+    <parent link="right_nova_wrist_camera_body"/>
+    <child link="cam_right_arm_frame"/>
+  </joint>
+
+  <link name="overhead_camera_frame"/>
+  <joint name="cam_main_alias" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="cam_main_frame"/>
+    <child link="overhead_camera_frame"/>
+  </joint>
+
+  <link name="front_camera_frame"/>
+  <joint name="cam_side_alias" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="cam_side_frame"/>
+    <child link="front_camera_frame"/>
+  </joint>
+
+  <link name="left_wrist_camera_frame"/>
+  <joint name="cam_left_arm_alias" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="cam_left_arm_frame"/>
+    <child link="left_wrist_camera_frame"/>
+  </joint>
+
+  <link name="right_wrist_camera_frame"/>
+  <joint name="cam_right_arm_alias" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="cam_right_arm_frame"/>
+    <child link="right_wrist_camera_frame"/>
+  </joint>
+</robot>

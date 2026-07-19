@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<sdf version='1.6'>
+  <model name='xtrainer_full_visual'>
+    <static>true</static>
+    <link name='xtrainer_visual_root'>
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.1</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0.1</iyy><iyz>0</iyz><izz>0.1</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual_J1_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J1_1.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J1_2'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J1_2.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J1_3'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J1_3.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J1_4'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J1_4.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J1_5'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J1_5.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J1_6'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J1_6.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J1_7'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J1_7.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J1_8'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J1_8.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J2_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J2_1.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J2_2'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J2_2.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J2_3'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J2_3.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J2_4'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J2_4.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J2_5'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J2_5.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J2_6'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J2_6.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J2_7'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J2_7.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J2_8'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J2_8.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J3_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J3_1.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J3_2'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J3_2.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J3_3'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J3_3.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J3_4'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J3_4.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J3_5'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J3_5.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J3_6'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J3_6.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J4_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J4_1.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J4_2'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J4_2.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J4_3'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J4_3.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J4_4'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J4_4.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J4_5'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J4_5.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_J4_6'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/J4_6.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+      <visual name='visual_base_link'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>../meshes/xtrainer_full_usd/base_link.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.76 1</ambient>
+          <diffuse>0.72 0.74 0.76 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

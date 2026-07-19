@@ -1,0 +1,62 @@
+# Environment profiles for X-Trainer physical simulation.
+# Updated: 2026-06-14
+
+project_root: <repo>/isaac_data_gen
+
+hardware_observed_2026_06_14:
+  os: Ubuntu 22.04.5 LTS
+  gpu: NVIDIA GeForce RTX 5060 Laptop GPU
+  driver: "580.159.03"
+  vram_mib: 8151
+  ram_gib: 30
+  disk_free_root_approx: 1.3T
+
+profiles:
+  upstream_legacy:
+    status: fallback_only
+    purpose: Reproduce embodied-dobot/x-trainer README.
+    isaac_sim: "4.5"
+    isaac_lab: "0.47.1"
+    python: "3.10+"
+    notes:
+      - Use only if local_50xx cannot converge because of LeIsaac API incompatibility.
+      - Do not overwrite the verified xtrainer_VLA environment.
+
+  local_50xx:
+    status: verified
+    purpose: Long-term local profile for RTX 5060 series.
+    conda_env: xtrainer_VLA
+    python: "3.11.15"
+    isaac_sim: "5.1.0.0"
+    isaac_lab: "v2.3.0"
+    isaac_lab_commit: "3c6e67b"
+    torch: "2.7.0+cu128"
+    driver: "580.159.03"
+    verification:
+      isaacsim_log: logs/install_20260614_195701_verify_isaacsim/verify_isaacsim.log
+      isaaclab_log: logs/install_20260614_195728_verify_isaaclab/verify_isaaclab.log
+    notes:
+      - Use scripts/common_env.sh before Isaac commands.
+      - Prefer num_envs=1 and staged camera validation due 8GB VRAM.
+      - LeIsaac 0.2.0 is installed editable under external/x-trainer/source/leisaac.
+
+  lerobot_xtrainer:
+    status: verified
+    purpose: Local HDF5 to LeRobot conversion and LeRobot dataset smoke loading.
+    conda_env: lerobot_xtrainer
+    python: "3.10.20"
+    lerobot: "0.3.3"
+    torch: "2.7.1+cpu"
+    torchvision: "0.22.1+cpu"
+    required_env:
+      - PYTHONNOUSERSITE=1
+    verification:
+      conversion_log: logs/session_phys40_lerobot_conversion_v1/run.log
+      conversion_report: logs/session_phys40_lerobot_conversion_v1/lerobot_conversion_report.md
+
+runtime_defaults:
+  num_envs: 1
+  device: cuda
+  enable_cameras: true
+  multi_view: true
+  step_hz: 30

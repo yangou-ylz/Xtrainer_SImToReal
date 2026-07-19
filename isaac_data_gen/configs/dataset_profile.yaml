@@ -1,0 +1,40 @@
+# Dataset profile for first X-Trainer-LeIsaac smoke dataset.
+# Status: PHYS-4 smoke conversion verified.
+
+dataset:
+  raw_hdf5_dir: datasets/raw_hdf5
+  lerobot_dir: datasets/lerobot
+  default_hdf5: datasets/raw_hdf5/pickcube_smoke_phys30.hdf5
+  default_lerobot_root: datasets/lerobot/phys40_xtrainer_pickcube_smoke
+  default_repo_id: local/xtrainer_pickcube_smoke
+  latest_batch_hdf5: datasets/raw_hdf5/session_phys70_batch_smoke_v1.hdf5
+  latest_batch_lerobot_root: datasets/lerobot/session_phys70_batch_smoke_v1
+  latest_batch_repo_id: local/session_phys70_batch_smoke_v1
+  task: Grab cube and place into plate
+  fps: 30
+
+features:
+  action:
+    shape: [16]
+    dtype: float32
+  observation_state:
+    shape: [16]
+    dtype: float32
+  images:
+    top:
+      shape: [480, 640, 3]
+      fps: 30
+    left_wrist:
+      shape: [480, 640, 3]
+      fps: 30
+    right_wrist:
+      shape: [480, 640, 3]
+      fps: 30
+
+quality_gates:
+  min_frames_per_episode: 10
+  reject_nan_actions: true
+  reject_nan_states: true
+  require_equal_frame_counts: true
+  require_success_for_conversion: true
+  allow_missing_success_for_smoke_only: true

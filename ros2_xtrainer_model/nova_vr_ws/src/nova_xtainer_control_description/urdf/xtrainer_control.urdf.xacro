@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<robot name="xtrainer_control" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find nova_xtainer_control_description)/urdf/nova2_control_arm.urdf.xacro"/>
+
+  <material name="control_table">
+    <color rgba="0.25 0.27 0.28 1.0"/>
+  </material>
+  <material name="control_mount_blue">
+    <color rgba="0.33 0.58 0.72 1.0"/>
+  </material>
+  <material name="control_frame">
+    <color rgba="0.08 0.09 0.10 1.0"/>
+  </material>
+  <material name="control_gripper">
+    <color rgba="0.10 0.68 0.36 0.85"/>
+  </material>
+  <material name="control_pad">
+    <color rgba="0.04 0.18 0.28 1.0"/>
+  </material>
+  <material name="control_camera_body">
+    <color rgba="0.70 0.72 0.72 1.0"/>
+  </material>
+  <material name="control_camera_lens">
+    <color rgba="0.00 0.01 0.015 1.0"/>
+  </material>
+
+  <link name="xtrainer_control_root"/>
+
+  <link name="control_table">
+    <xacro:control_inertial mass="12.0" ixx="0.5" iyy="0.5" izz="0.5"/>
+    <visual>
+      <origin xyz="0.53 -0.18 0.0475" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.40 0.96 0.08"/>
+      </geometry>
+      <material name="control_table"/>
+    </visual>
+    <visual>
+      <origin xyz="0.53 -0.18 0.095" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.34 0.90 0.012"/>
+      </geometry>
+      <material name="control_frame"/>
+    </visual>
+    <collision>
+      <origin xyz="0.53 -0.18 0.0475" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.40 0.96 0.08"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="root_to_control_table" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="xtrainer_control_root"/>
+    <child link="control_table"/>
+  </joint>
+
+  <xacro:macro name="base_plate" params="side parent xyz">
+    <link name="${side}_base_plate">
+      <xacro:control_inertial mass="0.8" ixx="0.02" iyy="0.02" izz="0.02"/>
+      <visual>
+        <origin xyz="0 0 0.005" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.20 0.20 0.01"/>
+        </geometry>
+        <material name="control_mount_blue"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.005" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.20 0.20 0.01"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${side}_base_plate_joint" type="fixed">
+      <origin xyz="${xyz}" rpy="0 0 0"/>
+      <parent link="${parent}"/>
+      <child link="${side}_base_plate"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:base_plate side="left" parent="control_table" xyz="0.0 -0.016 0.0"/>
+  <xacro:base_plate side="right" parent="control_table" xyz="1.06 -0.016 0.0"/>
+
+  <xacro:nova2_control_arm side="left" parent="left_base_plate" xyz="0 0 0" rpy="0 0 0"/>
+  <xacro:nova2_control_arm side="right" parent="right_base_plate" xyz="0 0 0" rpy="0 0 0"/>
+
+  <xacro:macro name="simple_control_gripper" params="side parent_link">
+    <link name="${side}_gripper_base">
+      <xacro:control_inertial mass="0.2"/>
+      <visual>
+        <origin xyz="0.040 0 0" rpy="0 1.5708 0"/>
+        <geometry>
+          <cylinder radius="0.018" length="0.080"/>
+        </geometry>
+        <material name="control_gripper"/>
+      </visual>
+      <visual>
+        <origin xyz="0.090 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.065 0.020 0.020"/>
+        </geometry>
+        <material name="control_gripper"/>
+      </visual>
+      <collision>
+        <origin xyz="0.075 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.10 0.035 0.035"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${side}_tool_to_gripper_base" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${parent_link}"/>
+      <child link="${side}_gripper_base"/>
+    </joint>
+
+    <link name="${side}_gripper_fixed_finger">
+      <xacro:control_inertial mass="0.04"/>
+      <visual>
+        <origin xyz="0.155 0.030 -0.025" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.105 0.010 0.075"/>
+        </geometry>
+        <material name="control_gripper"/>
+      </visual>
+      <visual>
+        <origin xyz="0.185 0.032 -0.075" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.026 0.018 0.022"/>
+        </geometry>
+        <material name="control_pad"/>
+      </visual>
+      <collision>
+        <origin xyz="0.155 0.030 -0.025" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.105 0.010 0.075"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${side}_fixed_finger_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${side}_gripper_base"/>
+      <child link="${side}_gripper_fixed_finger"/>
+    </joint>
+
+    <link name="${side}_gripper_moving_finger">
+      <xacro:control_inertial mass="0.04"/>
+      <visual>
+        <origin xyz="0.155 -0.030 -0.025" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.105 0.010 0.075"/>
+        </geometry>
+        <material name="control_gripper"/>
+      </visual>
+      <visual>
+        <origin xyz="0.185 -0.032 -0.075" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.026 0.018 0.022"/>
+        </geometry>
+        <material name="control_pad"/>
+      </visual>
+      <collision>
+        <origin xyz="0.155 -0.030 -0.025" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.105 0.010 0.075"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="${side}_gripper_joint" type="revolute">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${side}_gripper_base"/>
+      <child link="${side}_gripper_moving_finger"/>
+      <axis xyz="0 0 -1"/>
+      <limit lower="0.0" upper="1.0" effort="50" velocity="1.0"/>
+    </joint>
+
+    <link name="control_cam_${side}_arm_frame">
+      <xacro:control_inertial mass="0.05"/>
+    </link>
+    <joint name="${side}_gripper_base_to_camera" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="${side}_gripper_base"/>
+      <child link="control_cam_${side}_arm_frame"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:simple_control_gripper side="left" parent_link="left_link6"/>
+  <xacro:simple_control_gripper side="right" parent_link="right_link6"/>
+
+  <link name="camera_mast">
+    <xacro:control_inertial mass="2.0" ixx="0.02" iyy="0.02" izz="0.02"/>
+    <visual>
+      <origin xyz="-0.38 0 0.50" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.045 0.045 1.0"/>
+      </geometry>
+      <material name="control_frame"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.38 0 0.50" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.045 0.045 1.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="control_table_to_camera_mast" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="control_table"/>
+    <child link="camera_mast"/>
+  </joint>
+
+  <xacro:macro name="fixed_camera" params="name parent xyz rpy">
+    <link name="${name}">
+      <xacro:control_inertial mass="0.05"/>
+    </link>
+    <joint name="${parent}_to_${name}" type="fixed">
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <parent link="${parent}"/>
+      <child link="${name}"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:fixed_camera name="control_cam_main_frame" parent="camera_mast" xyz="0.91 -0.52 0.95" rpy="-2.58 0 0"/>
+  <xacro:fixed_camera name="control_cam_side_frame" parent="control_table" xyz="0.58 0.10 0.24" rpy="0.0 0.50 2.85"/>
+
+  <xacro:arg name="hardware_plugin" default="mock_components/GenericSystem"/>
+
+  <ros2_control name="xtrainer_control_system" type="system">
+    <hardware>
+      <plugin>$(arg hardware_plugin)</plugin>
+    </hardware>
+
+    <joint name="left_joint1">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="left_joint2">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="left_joint3">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="left_joint4">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="left_joint5">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="left_joint6">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="right_joint1">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="right_joint2">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="right_joint3">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="right_joint4">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="right_joint5">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="right_joint6">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="left_gripper_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="right_gripper_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find nova_xtainer_control_bringup)/config/xtrainer_mock_controllers.yaml</parameters>
+    </plugin>
+  </gazebo>
+</robot>

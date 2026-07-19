@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.venv/
+.venv_*/
+*.egg-info/
+
+# ROS2 build outputs
+ros2_xtrainer_model/nova_vr_ws/build/
+ros2_xtrainer_model/nova_vr_ws/install/
+ros2_xtrainer_model/nova_vr_ws/log/
+ros2_xtrainer_model/nova_vr_ws/logs/
+
+# Isaac / LeIsaac external dependencies and generated outputs
+isaac_data_gen/external/*
+!isaac_data_gen/external/.gitkeep
+isaac_data_gen/logs/*
+!isaac_data_gen/logs/.gitkeep
+isaac_data_gen/datasets/raw_hdf5/*.hdf5
+isaac_data_gen/datasets/lerobot/*
+!isaac_data_gen/datasets/lerobot/.gitkeep
+!isaac_data_gen/datasets/raw_hdf5/.gitkeep
+
+# Large local media
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
