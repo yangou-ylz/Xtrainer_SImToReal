@@ -1,137 +1,186 @@
-# X-Trainer Sim-to-Real 交接仓库
+# X-Trainer Sim-to-Real
 
-这个仓库是从原始工作目录里整理出来的干净版本，主要给后续负责虚拟仿真和 sim-to-real 的同学继续开发。
+X-Trainer 双臂机器人仿真、数据采集和 sim-to-real 开发项目。
 
-原始项目里有很多调研、论文、历史日志、数据集和个人配置，这些都没有放进来。这里保留的是能复现模型、跑通仿真数据链路、继续开发零售场景任务所需要的核心内容。
-
-## 仓库里有什么
+项目包含两部分：
 
 ```text
 isaac_data_gen/
   Isaac Sim + Isaac Lab + LeIsaac 数据生成链路
-  包含 HDF5 采集、LeRobot 转换、质量检查、随机化配置和采集脚本
+  用于高保真接触仿真、HDF5 采集、LeRobot 转换、质量检查和随机化增强
 
 ros2_xtrainer_model/
-  ROS2 Humble 工作区
-  包含 X-Trainer 完整视觉模型、可控模型、RViz/Gazebo 启动和 14 维控制工具
-
-docs/
-  仓库内容说明、外部依赖说明、后续开发路线
-
-scripts/
-  仓库级准备、检查、初始化和推送脚本
+  ROS2 Humble 模型工作区
+  用于 X-Trainer 模型显示、可控模型验证、RViz/Gazebo 启动和 14 维动作接口检查
 ```
 
-## 没有放什么
-
-下面这些内容故意不放进 Git：
-
-- 调研文档、论文、PDF、网页快照
-- 历史日志、截图、视频
-- 已生成的 HDF5 / LeRobot 数据集
-- Isaac Lab 源码副本
-- 官方 X-Trainer-LeIsaac 上游副本
-- conda 环境、ROS2 build/install/log 输出
-- 个人 agent 记忆和本机配置
-
-大文件和官方上游仓库后续用脚本恢复，这样 GitHub 仓库会比较轻，后面改 bug 也容易同步。
-
-## 当前主线
-
-后续开发建议按这个链路走：
+## 总体链路
 
 ```text
-官方 X-Trainer-LeIsaac 资产
+X-Trainer-LeIsaac 资产
   -> Isaac Sim / Isaac Lab / LeIsaac
-  -> PickCube 基线复现
+  -> PickCube 基线任务
   -> 零售 PickSnack / PlaceBasket 任务
   -> HDF5 原始数据
   -> LeRobot 数据集
-  -> pi0.5 / VLA 训练数据增强
-  -> 真机成功率评测
+  -> VLA / pi0.5 训练数据增强
+  -> 真机评测
 ```
 
-`ros2_xtrainer_model/` 主要是模型和控制语义参考。真正做高保真接触、随机化、批量数据生成时，优先在 `isaac_data_gen/` 里开发。
+`isaac_data_gen/` 是后续高保真仿真和数据生成主线。  
+`ros2_xtrainer_model/` 是 ROS2 侧模型和动作语义参考。
 
-## 第一次拿到仓库后怎么做
+## 目录结构
 
-先检查源码树：
+```text
+.
+├── isaac_data_gen/
+│   ├── configs/              # 环境、数据集、随机化配置
+│   ├── docs/                 # 动作映射和数据格式
+│   ├── scripts/              # 安装、验证、采集、导出、质量检查入口
+│   ├── src/phys_data_gen/    # 可复用 Python 工具
+│   └── tests/                # 单元测试
+├── ros2_xtrainer_model/
+│   └── nova_vr_ws/src/       # ROS2 模型包
+├── docs/                     # 项目说明和开发路线
+└── scripts/                  # 仓库级工具脚本
+```
+
+## 快速开始
+
+检查项目结构：
 
 ```bash
 cd <repo>
 bash scripts/verify_source_tree.sh
 ```
 
-再拉取官方上游和 PickCube 资产：
+准备 X-Trainer-LeIsaac 上游和 PickCube 资产：
 
 ```bash
 cd <repo>
 bash scripts/prepare_external_assets.sh
 ```
 
-如果要在本机配置 Isaac 环境：
+配置 Isaac 环境：
 
 ```bash
 cd <repo>
 bash scripts/setup_isaac_env.sh
 ```
 
-这个命令需要 NVIDIA GPU、conda、网络和 NVIDIA Omniverse EULA 授权。已有 `xtrainer_VLA` 环境时默认不会删除；只有显式设置 `RESET_XTRAINER_ENV=1` 才会重建。
+环境要求：
 
-## 常用入口
+- Ubuntu 22.04
+- NVIDIA RTX GPU
+- conda
+- Isaac Sim `5.1.0.0`
+- Isaac Lab `v2.3.0`
+- LeIsaac `0.2.0`
 
-仿真数据生成：
+已有 `xtrainer_VLA` conda 环境时，脚本默认复用该环境。需要完整重建时再执行：
+
+```bash
+RESET_XTRAINER_ENV=1 bash scripts/setup_isaac_env.sh
+```
+
+## Isaac 数据生成
+
+动作映射测试：
+
+```bash
+cd isaac_data_gen
+PYTHONPATH=src pytest -q tests/test_action_mapping.py
+```
+
+LeIsaac 注册验证：
+
+```bash
+cd isaac_data_gen
+ACCEPT_NVIDIA_OMNIVERSE_EULA=YES bash scripts/phys22_verify_leisaac_registry.sh session_registry
+```
+
+PickCube 无相机 smoke test：
+
+```bash
+cd isaac_data_gen
+ACCEPT_NVIDIA_OMNIVERSE_EULA=YES bash scripts/phys23_no_camera_smoke.sh session_no_camera
+```
+
+三视角 demo：
+
+```bash
+cd isaac_data_gen
+ACCEPT_NVIDIA_OMNIVERSE_EULA=YES bash scripts/phys25_multiview_demo.sh session_multiview
+```
+
+采集一条 episode：
 
 ```bash
 cd isaac_data_gen
 bash scripts/collect_episode.sh
 ```
 
-导出已有 HDF5：
+导出最新 HDF5：
 
 ```bash
 cd isaac_data_gen
 python3 scripts/export_episode.py
 ```
 
-ROS2 可控模型：
+## ROS2 模型
+
+构建 ROS2 工作区：
 
 ```bash
 cd ros2_xtrainer_model/nova_vr_ws
 source /opt/ros/humble/setup.bash
+export PYTHONNOUSERSITE=1
+export NOVA_VR_WS="$PWD"
+export ROS_LOG_DIR="$PWD/logs/ros"
+mkdir -p "$ROS_LOG_DIR"
 colcon build --symlink-install
 source install/setup.bash
+```
+
+查看静态视觉模型：
+
+```bash
+ros2 launch nova_xtainer_bringup xtainer_rviz.launch.py
+```
+
+运行可控模型：
+
+```bash
 ros2 launch nova_xtainer_control_bringup xtrainer_full_mock_control.launch.py
 ```
 
-更详细的说明看：
+另开终端运行 14 维控制滑块：
+
+```bash
+cd ros2_xtrainer_model/nova_vr_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+ros2 run nova_xtainer_control_bringup xtrainer_full_action_slider.py
+```
+
+## 文档
 
 - [isaac_data_gen/README.md](isaac_data_gen/README.md)
 - [ros2_xtrainer_model/README.md](ros2_xtrainer_model/README.md)
-- [docs/ROADMAP.md](docs/ROADMAP.md)
 - [docs/REPOSITORY_CONTENTS.md](docs/REPOSITORY_CONTENTS.md)
+- [docs/ROADMAP.md](docs/ROADMAP.md)
 
-## 推送到 GitHub
+## 版本管理
 
-如果这是本地整理目录，准备推到一个新的空 GitHub 仓库，执行：
+建议提交源码、配置、轻量模型和文档。
 
-```bash
-cd <repo>
-REMOTE_URL=git@github.com:<user>/<repo>.git bash scripts/init_and_push_template.sh
-```
+不要提交运行生成文件：
 
-HTTPS 也可以：
-
-```bash
-cd <repo>
-REMOTE_URL=https://github.com/<user>/<repo>.git bash scripts/init_and_push_template.sh
-```
-
-脚本只会在当前交接目录里初始化 Git，不会处理原始大项目的 Git 历史。
-
-## 协作规则
-
-- 源码、配置、轻量模型、文档可以进 Git。
-- 生成数据、日志、视频、外部仓库、conda 环境不要进 Git。
-- 如果某个大资产确实必须使用，优先写下载脚本或说明来源，不要直接塞进仓库。
-- 新增任务时，先保证能生成 HDF5、导出 MP4、通过质量检查，再考虑扩大随机化和批量生成。
+- `isaac_data_gen/external/`
+- `isaac_data_gen/logs/`
+- `isaac_data_gen/datasets/`
+- `ros2_xtrainer_model/nova_vr_ws/build/`
+- `ros2_xtrainer_model/nova_vr_ws/install/`
+- `ros2_xtrainer_model/nova_vr_ws/logs/`
+- conda 环境、缓存文件、视频文件
